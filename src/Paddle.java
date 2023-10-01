@@ -62,6 +62,19 @@ public class Paddle extends GameObject {
 
     @Override
     public void process(double delta) {
+        currentSpeed = 0;
+        if (Ping.isKeyPressed(KeyEvent.VK_W)) {
+            if (posY >= 10) {
+                currentSpeed = speed;
+                posY -= (currentSpeed * delta);
+            }
+        }
 
+        if (Ping.isKeyPressed(KeyEvent.VK_S)) {
+            if (posY <= 411) {
+                currentSpeed = -speed;
+                posY -= (currentSpeed * delta);
+            }
+        }
     }
 }

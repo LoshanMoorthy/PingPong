@@ -46,8 +46,9 @@ public class Ball extends GameObject {
         this.posY = posY;
     }
 
-    public void setVelocity(double[] velocity) {
-        this.velocity = velocity;
+    public void setVelocity(int[] velocity) {
+        this.velocity[0] = velocity[0];
+        this.velocity[1] = velocity[1];
     }
 
     public void setPaddleLeft(Paddle paddleLeft) {
@@ -118,8 +119,8 @@ public class Ball extends GameObject {
             // Add some randomness to the ball's velocity
             velocity[0] += ((Math.random() - 0.5) * 4);
             velocity[1] += ((Math.random() - 0.5) * 1.5);
-            // Handle scoring or game logic when the ball hits the right wall (commented out)
-            //Ping.win(1);
+            // Handle scoring or game logic when the ball hits the right wall
+            Ping.win(0);
         }
 
         // Check if the ball has hit the left wall
@@ -131,8 +132,8 @@ public class Ball extends GameObject {
             // Add some randomness to the ball's velocity
             velocity[0] += ((Math.random() - 0.5) * 4);
             velocity[1] += ((Math.random() - 0.5) * 1.5);
-            // Handle scoring or game logic when the ball hits the left wall (commented out)
-            //Ping.win(1);
+            // Handle scoring or game logic when the ball hits the left wall
+            Ping.win(1);
         }
 
         // Check if the ball has hit the bottom wall
